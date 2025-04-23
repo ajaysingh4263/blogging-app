@@ -35,26 +35,32 @@ export default function NewPostPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 flex items-start justify-center py-12 px-4">
-      <div className="w-full max-w-xl bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Create New Post</h1>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-sky-100 to-teal-100
+                    flex items-center justify-center py-12 px-4">
+      <div className="w-full max-w-3xl bg-white/90 backdrop-blur-md
+                      rounded-3xl shadow-2xl p-10 border border-slate-200">
+        <h1 className="text-4xl font-extrabold text-slate-800 mb-8 text-center drop-shadow-sm">
+          Create New Post
+        </h1>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div>
-            <label className="block mb-1 text-sm font-medium text-gray-700">
+            <label className="block mb-2 text-base font-medium text-slate-700">
               Title
             </label>
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Awesome title…"
-              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none
-                         focus:ring-2 focus:ring-blue-500 text-gray-900"
+              className="w-full rounded-xl border border-slate-300 bg-white
+                         p-4 text-lg text-slate-900 placeholder-slate-400
+                         focus:outline-none focus:ring-4 focus:ring-blue-300
+                         transition"
             />
           </div>
 
           <div>
-            <label className="block mb-1 text-sm font-medium text-gray-700">
+            <label className="block mb-2 text-base font-medium text-slate-700">
               Body
             </label>
             <textarea
@@ -62,16 +68,19 @@ export default function NewPostPage() {
               value={body}
               onChange={(e) => setBody(e.target.value)}
               placeholder="Write your post here…"
-              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none
-                         focus:ring-2 focus:ring-blue-500 text-gray-900 resize-none"
+              className="w-full rounded-xl border border-slate-300 bg-white
+                         p-4 text-lg text-slate-900 placeholder-slate-400
+                         focus:outline-none focus:ring-4 focus:ring-blue-300
+                         transition resize-none"
             />
           </div>
-
           <button
             type="submit"
             disabled={submitting}
-            className="w-full bg-blue-600 hover:bg-blue-700 transition-colors text-white
-                       font-medium py-3 rounded-lg disabled:opacity-60"
+            className={`w-full py-4 rounded-xl text-lg font-semibold
+                        bg-blue-600 hover:bg-blue-700 active:bg-blue-800
+                        text-white shadow-md transition
+                        disabled:opacity-60 ${submitting && 'cursor-wait'}`}
           >
             {submitting ? 'Posting…' : 'Submit'}
           </button>

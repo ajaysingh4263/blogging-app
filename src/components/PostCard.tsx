@@ -19,8 +19,7 @@ export default function PostCard({ post,onDelete }: PostCardProps) {
                      transition-transform hover:scale-105 duration-300 border
                      border-gray-200 p-6 flex flex-col group">
 
-      <div className="absolute top-3 right-3 flex gap-2 opacity-0
-                      group-hover:opacity-100 transition-opacity">
+      <div  className="absolute top-3 right-3 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
         <Link
           href={`/edit/${post.id}`}
           className="p-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white"
