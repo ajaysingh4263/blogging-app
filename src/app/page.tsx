@@ -16,8 +16,10 @@ export default function HomePage() {
   console.log("posts--", posts);
 
   useEffect(() => {
-    dispatch(fetchPosts() as any); 
-  }, [dispatch]);
+    if (posts.length === 0) {     
+      dispatch(fetchPosts() as any);
+    }
+  }, [dispatch, posts.length]);
   
   const handleDelete = async (id: number) => {
     const ok = window.confirm('Are you sure you want to delete this post?');
